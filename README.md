@@ -1,5 +1,7 @@
 # TypeScript library starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vnovick/smarthome-manager.svg?token=9812a99df5fe51836f9ad2bb48a2cebf000f3fdb1c4df2c7d5259bf8b52e5960&ts=1523211863645)](https://greenkeeper.io/)
+
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/)
 [![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter)
