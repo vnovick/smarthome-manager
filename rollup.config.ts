@@ -17,7 +17,10 @@ export default {
   ],
   sourcemap: true,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: [],
+  external: [
+    'wemo-client',
+    'magic-home'
+  ],
   watch: {
     include: 'src/**',
   },

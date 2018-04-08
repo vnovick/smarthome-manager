@@ -105,7 +105,8 @@
     "typescript": "^2.6.2",
     "validate-commit-msg": "^2.12.2"
   },
-  "dependencies": {
-    "magic-home": "^1.1.1"
+  "peerDependencies": {
+    "magic-home": "^1.1.1",
+    "wemo-client": "^0.15.0"
   }
 }
