@@ -1,4 +1,4 @@
-import DummyClass from '../src/smarthome-manager'
+import { SmartHomeManager } from '../src/smarthome-manager'
 
 /**
  * Dummy test
@@ -8,7 +8,7 @@ describe('Dummy test', () => {
     expect(true).toBeTruthy()
   })
 
-  it('DummyClass is instantiable', () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+  it('SmartHomeManager is instantiable', () => {
+    expect(new SmartHomeManager([])).toBeInstanceOf(SmartHomeManager)
   })
 })

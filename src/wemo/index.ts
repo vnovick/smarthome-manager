@@ -1,6 +1,33 @@
-import { Controller, DeviceOptions, DeviceType, Statefull, StateListener } from '../lib'
+import {
+  Controller,
+  DeviceOptions,
+  DeviceType,
+  Statefull,
+  StateListener
+} from '../lib'
 import * as Wemo from 'wemo-client'
-export interface IWemoController extends Controller {}
+export interface IWemoController extends Controller {
+  connect(): Promise<any>
+  getEndDevices(): Promise<any>
+  getBrightness(): Promise<any>
+  setBrightness(brightness: number): Promise<any>
+  getAttributes(): Promise<any>
+  getDeviceStatus(deviceId: String): Promise<any>
+  setDeviceStatus(
+    deviceId: String,
+    capability: String,
+    value: String
+  ): Promise<any>
+  setLightColor(
+    deviceId: String,
+    red: String,
+    green: String,
+    blue: String
+  ): Promise<any>
+  getInsightParams(): Promise<any>
+  setAttributes(attributes: Object): Promise<any>
+  getBinaryState(client: any): Promise<any>
+}
 
 export type WemoOptions = {
   setupUrl: String
@@ -78,15 +105,18 @@ export class WemoController extends Statefull implements IWemoController {
           }
         })
       })
-      client.on('statusChange', (deviceId: String, capabilityId: String, value: String) => {
-        this.changeState({
-          status: {
-            deviceId,
-            value,
-            capabilityId
-          }
-        })
-      })
+      client.on(
+        'statusChange',
+        (deviceId: String, capabilityId: String, value: String) => {
+          this.changeState({
+            status: {
+              deviceId,
+              value,
+              capabilityId
+            }
+          })
+        }
+      )
       client.on('error', (error: any) => this.changeState({ error }))
       return this.state
     } catch (e) {
@@ -120,13 +150,16 @@ export class WemoController extends Statefull implements IWemoController {
 
   setBrightness(brightness: number) {
     return new Promise((resolve, reject) => {
-      this.state.activeClient.setBrightness(brightness, (err: any, value: number) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(value)
+      this.state.activeClient.setBrightness(
+        brightness,
+        (err: any, value: number) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(value)
+          }
         }
-      })
+      )
     })
   }
 
@@ -144,13 +177,16 @@ export class WemoController extends Statefull implements IWemoController {
 
   getDeviceStatus(deviceId: String) {
     return new Promise((resolve, reject) => {
-      this.state.activeClient.getDeviceStatus(deviceId, (err: any, value: number) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(value)
+      this.state.activeClient.getDeviceStatus(
+        deviceId,
+        (err: any, value: number) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(value)
+          }
         }
-      })
+      )
     })
   }
 
@@ -239,7 +275,7 @@ export class WemoController extends Statefull implements IWemoController {
     })
   }
 
-  wemoLoad(setupUrl: string) {
+  private wemoLoad(setupUrl: string) {
     return new Promise((resolve, reject) => {
       this.wemo.load(setupUrl, (err: any, deviceInfo: any) => {
         if (err) {

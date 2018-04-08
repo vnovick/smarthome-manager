@@ -2,7 +2,7 @@ import { Controller, DeviceOptions, Devices, Statefull } from '../lib'
 
 export interface IHueController extends Controller {
   getHueState(): Promise<any>
-  generateUser(devicetype: Devices): Promise<any>
+  generateUser(devicetype: String): Promise<any>
   toggleHueState(lightId: number, state: HueStateObject): Promise<any>
   hueAuthorizedApiCall(endpoint: String, options: RequestInit): Promise<any>
   hueRawApiCall(endpoint: String, options: RequestInit): Promise<any>
@@ -67,10 +67,13 @@ export class HueController extends Statefull implements IHueController {
 
   async toggleHueState(lightId: number, state: HueStateObject): Promise<any> {
     try {
-      const response = await fetch(`${this.hueEndPoint}/${this.username}/lights/${lightId}/state`, {
-        method: 'PUT',
-        body: JSON.stringify(state)
-      })
+      const response = await fetch(
+        `${this.hueEndPoint}/${this.username}/lights/${lightId}/state`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(state)
+        }
+      )
       const rsp = await response.json()
       return rsp
     } catch (e) {
@@ -83,14 +86,20 @@ export class HueController extends Statefull implements IHueController {
     options: RequestInit = { method: 'GET' }
   ): Promise<any> {
     try {
-      const response = await fetch(`${this.hueEndPoint}/${this.username}/${endpoint}`, options)
+      const response = await fetch(
+        `${this.hueEndPoint}/${this.username}/${endpoint}`,
+        options
+      )
       return await response.json()
     } catch (e) {
       throw new Error(e)
     }
   }
 
-  async hueRawApiCall(endpoint: String, options: RequestInit = { method: 'GET' }): Promise<any> {
+  async hueRawApiCall(
+    endpoint: String,
+    options: RequestInit = { method: 'GET' }
+  ): Promise<any> {
     try {
       const response = await fetch(`${this.hueEndPoint}/${endpoint}`, options)
       return await response.json()
