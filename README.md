@@ -1,11 +1,11 @@
 # SmartHome Manager
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/)
-[![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter)
-[![Coveralls](https://img.shields.io/coveralls/alexjoverm/typescript-library-starter.svg)](https://coveralls.io/github/alexjoverm/typescript-library-starter)
-[![Dev Dependencies](https://david-dm.org/alexjoverm/typescript-library-starter/dev-status.svg)](https://david-dm.org/alexjoverm/typescript-library-starter?type=dev)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/AJoverMorales)
+<!-- [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/) -->
+<!-- [![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter) -->
+<!-- [![Coveralls](https://img.shields.io/coveralls/alexjoverm/typescript-library-starter.svg)](https://coveralls.io/github/alexjoverm/typescript-library-starter) -->
+<!-- [![Dev Dependencies](https://david-dm.org/vnovick/smarthome-manager/dev-status.svg)](https://david-dm.org/vnovick/smarthome-manager?type=dev) -->
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/vnovick)
 
 
 ## Project consolidates several SmartHome devices brands into one manager
@@ -15,32 +15,33 @@
 # Supported Brands 
 
 ## PhilipsHue
-[<img src="https://i.imgur.com/hhu3KRr.png" width="100px">](asd)
+[<img src="https://i.imgur.com/hhu3KRr.png" width="100px">](https://www2.meethue.com/en-us)
 
 Philips Hue is a high end smart home supplier supplying huge variety of devices from simple dimmable leds to complex sensors etc. 
 
 ### How it works
 
-Philips Hue devices use [Zigbee]() protocol to communicate between themselves and the bridge. [Bridge]() is connected to local network. Communication between devices and the bridge is done solely through the bridge by using Philips hue REST API.
+Philips Hue devices use [Zigbee](https://en.wikipedia.org/wiki/Zigbee) protocol to communicate between themselves and the bridge. [Bridge](https://www2.meethue.com/en-us/p/hue-bridge/046677458478) is connected to local network. Communication between devices and the bridge is done solely through the bridge by using Philips hue REST API.
 
 SmartHome Manager abstracts this api to be available through `async` calls on `HueController` object.
 for example:
 
 
-[<img src="https://i.imgur.com/enuh4u8.png" width="100px">]()
+[<img src="https://i.imgur.com/enuh4u8.png" width="100px">](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/)
 
-Wemo is home automation branch by Belkin which works over local Wifi by sending [SOAP]() requests from and to device. Wemo also has a Bridge that gives an ability to interact with various devices
+Wemo is home automation branch by Belkin which works over local Wifi by sending [SOAP](https://en.wikipedia.org/wiki/SOAP) requests from and to device. Wemo also has a Bridge that gives an ability to interact with various devices
 
-Wemo part of `smarthome-manager` is an abstraction and syntactic sugar over [wemo-client]() library that enables more easier API
+Wemo part of `smarthome-manager` is an abstraction and syntactic sugar over [wemo-client](https://github.com/timonreinhard/wemo-client) library that enables more easier API
 
-[<img src="https://i.imgur.com/gWfWpzI.png" width="100px">]()
+[<img src="https://i.imgur.com/gWfWpzI.png" width="100px">](https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Dmi&field-keywords=magic+home)
 
 MagicHome is a series of Chinese manufactured low end light bulbs that connects to your local wifi through setup process and then is available through tcp socket. 
+library uses under the hood [magic-home](https://github.com/jangxx/node-magichome) library and abstrats things on top of it
 
 
 # Setup & Discovery
 
-Before setting everything up it's important to understand which devices you want to consolidate inside a bridge. If you have `PhilipsHue` and `Wemo`, you can choose to use `smarthome-manager` [autoDiscovery]() mode. If you have magicHome too unfortunately you have to find out to which IP it's connected. Read about this in [Manual Discovery]() section
+Before setting everything up it's important to understand which devices you want to consolidate inside a bridge. If you have `PhilipsHue` and `Wemo`, you can choose to use `smarthome-manager` [autoDiscovery](#AutoDiscovery) mode. If you have magicHome too unfortunately you have to find out to which IP it's connected. Read about this in [Discovery](#Discovery) section
 
 ## Install
 
@@ -112,9 +113,9 @@ In this example IPs of all devices are already known. `smarthome-manager` constr
 - [`magicHomeController`]()
 
 
-## IP Discovery
+## Discovery
 
-In order to discover Ips of all your devices you need to basically sniff your network for packet data. It can be done by enabling proxy between your mobile phone with controlling app for each device. For MagicHome it's the most complicated process since you cannot use regular tools like [CharlesProxy]() and need to use WireShark to sniff actual TCP packet transfer data.
+In order to discover Ips of all your devices you need to basically sniff your network for packet data. It can be done by enabling proxy between your mobile phone with controlling app for each device. For MagicHome it's the most complicated process since you cannot use regular tools like [CharlesProxy](https://www.charlesproxy.com/) and need to use [WireShark](https://www.wireshark.org/) to sniff actual TCP packet transfer data.
 
 Below are steps if you use MacOS and have an Iphone. If you are on Windows and use Android you will use different steps that will be added here later on.
 
@@ -130,7 +131,7 @@ rvictl -s c93402350920923402342094
 ifconfig rvi0
 ```
 
-- Open [WireShark]()
+- Open [WireShark](https://www.wireshark.org/)
 
 ![Wireshark Image]()
 
@@ -146,7 +147,7 @@ MagicHome uses port `5577` so in order to sniff packet data and get the actual d
 Both Philips Hue and Wemo Devices are discoverable by sniffing [UPNP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) services in your local network. Philips Hue also has [Broker Service](https://www.meethue.com/api/nupnp) you can use to discover Hue Bridge IP
 
 
-# Auto Discovery
+# AutoDiscovery
 
 `smarthome-manager` has autoDiscovery mode for both PhilipsHue and Wemo devices. it uses external SSDP Client that should be passed into `SmartHomeManager` so basically you can switch the client to the one of your choice. 
 
@@ -213,7 +214,7 @@ export interface IHueController extends Controller {
     const response = await philipsHueController.generateUser("test-app")
 ```
 
-> Toggle state `{on: true }`(see [`HueState`](http://127.0.0.1:5500/docs/globals.html#huestateobject) for available options) of lightbulb with `id=2`  for available options
+> Toggle state `{on: true }`(see [`HueState`]() for available options) of lightbulb with `id=2`  for available options
 
 ```javascript
     // By using promises
