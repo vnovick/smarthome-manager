@@ -112,8 +112,5 @@
     "magic-home": "^1.1.1",
     "wemo-client": "^0.15.0",
     "isomorphic-fetch": "^2.2.1"
-  },
-  "publishConfig": {
-    "access": "restricted"
   }
 }
