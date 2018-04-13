@@ -180,6 +180,7 @@ ___
 
 > Philips Hue API is available [here](https://www.developers.meethue.com/philips-hue-api)
 
+
 Library abstracts only basic API calls. rest api calls are available by calling `hueAuthorizedApiCall` or `hueRawApiCall` methods to access any Philips Hue functionality
 
 
