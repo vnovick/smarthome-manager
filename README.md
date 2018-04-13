@@ -176,7 +176,7 @@ onReady: (state, controllers) => {
 ```
 ___
 
-## PhilipsHue
+## PhilipsHue 
 
 > Philips Hue API is available [here](https://www.developers.meethue.com/philips-hue-api)
 
