@@ -1,6 +1,6 @@
 {
   "name": "smarthome-manager",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-sematically-released",
   "description": "",
   "keywords": [],
   "main": "dist/smarthome-manager.umd.js",
