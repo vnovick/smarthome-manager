@@ -182,6 +182,7 @@ ___
 
 Library abstracts only basic API calls. rest api calls are available by calling `hueAuthorizedApiCall` or `hueRawApiCall` methods to access any Philips Hue functionality
 
+
 ```typescript
 export interface IHueController extends Controller {
   generateUser(devicetype: String): Promise<any>
