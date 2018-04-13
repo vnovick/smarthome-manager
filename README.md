@@ -1,6 +1,8 @@
 # SmartHome Manager
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 <!-- [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/) -->
 <!-- [![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter) -->
 <!-- [![Coveralls](https://img.shields.io/coveralls/alexjoverm/typescript-library-starter.svg)](https://coveralls.io/github/alexjoverm/typescript-library-starter) -->
@@ -18,8 +20,6 @@
 [<img src="https://i.imgur.com/hhu3KRr.png" width="100px">](https://www2.meethue.com/en-us)
 
 Philips Hue is a high end smart home supplier supplying huge variety of devices from simple dimmable leds to complex sensors etc. 
-
-### How it works
 
 Philips Hue devices use [Zigbee](https://en.wikipedia.org/wiki/Zigbee) protocol to communicate between themselves and the bridge. [Bridge](https://www2.meethue.com/en-us/p/hue-bridge/046677458478) is connected to local network. Communication between devices and the bridge is done solely through the bridge by using Philips hue REST API.
 
@@ -433,6 +433,7 @@ Contributing is really welcomed since I don't have all smarthome devices to phys
 
 Library is based on the package [typescript-library-starter]() so all testing, coverage reporting guidelines are listed there.
 
+[Read more](./CONTRIBUTING.md)
 
 ## Resources
 
