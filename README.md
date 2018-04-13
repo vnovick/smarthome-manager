@@ -3,11 +3,9 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-<!-- [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/) -->
-<!-- [![Travis](https://img.shields.io/travis/alexjoverm/typescript-library-starter.svg)](https://travis-ci.org/alexjoverm/typescript-library-starter) -->
-<!-- [![Coveralls](https://img.shields.io/coveralls/alexjoverm/typescript-library-starter.svg)](https://coveralls.io/github/alexjoverm/typescript-library-starter) -->
-<!-- [![Dev Dependencies](https://david-dm.org/vnovick/smarthome-manager/dev-status.svg)](https://david-dm.org/vnovick/smarthome-manager?type=dev) -->
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/vnovick)
+<!-- [![Greenkeeper badge](https://badges.greenkeeper.io/vnovick/smarthome-manager.svg)](https://greenkeeper.io/) -->
+[![Travis](https://travis-ci.org/vnovick/smarthome-manager.svg?branch=master)](https://travis-ci.org/vnovick/smarthome-manager)
+
 
 
 ## Project consolidates several SmartHome devices brands into one manager
